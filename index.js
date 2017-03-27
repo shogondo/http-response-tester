@@ -34,6 +34,7 @@ class Responder {
                 this.response.write(params.content.toString());
             }
             else {
+                parsedUrl.headers = this.request.headers;
                 this.response.write(JSON.stringify(parsedUrl));
             }
         }
