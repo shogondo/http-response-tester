@@ -20,6 +20,8 @@ class Responder {
 
     handle() {
         try {
+            this.dumpRequestInfo();
+
             let parsedUrl = url.parse(this.request.url, true);
             let params = parsedUrl.query;
             this.response.statusCode = params.status || 200;
@@ -45,6 +47,16 @@ class Responder {
         }
 
         this.response.end();
+    }
+
+    dumpRequestInfo() {
+        console.log("timestamp:", new Date());
+        console.log("url:", this.request.url);
+        console.log("headers:");
+        for (let name in this.request.headers) {
+            console.log("    ", name, ":", this.request.headers[name]);
+        }
+        console.log("");
     }
 }
 
