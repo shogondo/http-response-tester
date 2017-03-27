@@ -8,7 +8,7 @@ The HTTP server to respond any HTTP status for testing
 
 # Setup
 1. `cp settings.js.sample settings.js` and edit `settings.js` to configure listening port of the HTTP server.
-2. Run `node index.js`
+2. Execute `bin/run` or `node index.js`
 
 
 # How to use
