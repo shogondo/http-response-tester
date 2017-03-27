@@ -4,11 +4,19 @@ let settings = require("./settings");
 
 class Server {
     start() {
+        this.dumpServerInfo();
+
         let server = http.createServer((req, res) => {
             let responder = new Responder(req, res);
             responder.handle();
         });
         server.listen(settings.port);
+    }
+
+    dumpServerInfo() {
+        console.log("start date:", new Date());
+        console.log("listening port:", settings.port);
+        console.log("");
     }
 }
 
